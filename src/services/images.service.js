@@ -8,7 +8,7 @@ const getRandomImage = () => {
   const images = assetImagesContext.keys();
   const selectedKey = images[Math.floor(Math.random() * images.length)];
 
-  return `img/${selectedKey}`;
+  return selectedKey.slice(2);
 };
 
 export default {
