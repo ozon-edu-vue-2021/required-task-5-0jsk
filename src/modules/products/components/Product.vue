@@ -3,7 +3,7 @@
     <img class="item__image" :src="product.image" :alt="product.title" />
     <span class="item__title">{{ product.title }}</span>
     <div class="item__controls">
-      <span class="item__price">{{ product.price }} &thinsp;₽</span>
+      <span class="item__price">{{ product.price }} ₽</span>
       <button type="button" class="item__btn-add" @click="handleClick">
         Добавить
       </button>

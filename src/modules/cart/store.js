@@ -4,22 +4,23 @@ const state = {
 
 const mutations = {
   add(state, product) {
-    const index = state.findIndex((p) => p.id === product.id);
+    const index = state.cart.findIndex((p) => p.id === product.id);
 
     if (~index) {
-      state[index].count += 1;
+      state.cart[index].count += 1;
+      return;
     }
 
-    state = [...state, { product, count: 1 }];
+    state.cart = [...state.cart, { ...product, count: 1 }];
   },
   delete(state, product) {
-    const index = state.findIndex((p) => p.id === product.id);
+    const index = state.cart.findIndex((p) => p.id === product.id);
 
     if (~index) {
-      state[index].count -= 1;
+      state.cart[index].count -= 1;
     }
 
-    state = state.filter(({ count }) => count > 0);
+    state.cart = state.cart.filter(({ count }) => count > 0);
   },
 };
 
