@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img class="item__image" :src="image" :alt="product.title" />
+    <img class="item__image" :src="product.image" :alt="product.title" />
     <span class="item__title">{{ product.title }}</span>
     <div class="item__controls">
       <span class="item__price">{{ product.price }} &thinsp;₽</span>
@@ -24,11 +24,6 @@ export default {
       required: true,
       validator: (o) => Boolean(o.id),
     },
-  },
-  data() {
-    return {
-      image: require(`@/assets/images/${this.product.image}`),
-    };
   },
 };
 </script>
