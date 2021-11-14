@@ -25,9 +25,14 @@ const actions = {
   },
 };
 
+const getters = {
+  favourites: (state) => state.products.filter(({ favourite }) => favourite),
+};
+
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions,
 };

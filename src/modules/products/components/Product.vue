@@ -4,11 +4,7 @@
     <span class="item__title">{{ product.title }}</span>
     <div class="item__controls">
       <span class="item__price">{{ product.price }} &thinsp;₽</span>
-      <button
-        type="button"
-        class="item__btn-add"
-        @click="$emit('add', product)"
-      >
+      <button type="button" class="item__btn-add" @click="handleClick">
         Добавить
       </button>
     </div>
@@ -16,6 +12,8 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Product",
   props: {
@@ -23,6 +21,13 @@ export default {
       type: Object,
       required: true,
       validator: (o) => Boolean(o.id),
+    },
+  },
+  methods: {
+    ...mapMutations("Cart", ["add"]),
+    handleClick() {
+      this.add(this.product);
+      this.$emit("add", this.product);
     },
   },
 };

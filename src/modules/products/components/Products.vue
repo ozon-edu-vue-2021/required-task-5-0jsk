@@ -1,20 +1,17 @@
 <template>
-  <div class="panel">
-    <div class="list">
-      <Product
-        class="list__item"
-        v-for="product of products"
-        :product="product"
-        :key="product.id"
-      />
-    </div>
-    <div class="controls"></div>
+  <div class="list">
+    <Product
+      class="list__item"
+      v-for="product of products"
+      :product="product"
+      :key="product.id"
+    />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapState } from "vuex";
-import Product from "@/modules/products/components/Product";
+import Product from "./Product";
 
 export default {
   name: "Products",
@@ -29,13 +26,6 @@ export default {
 </script>
 
 <style scoped>
-.panel {
-  display: flex;
-  justify-content: space-between;
-
-  width: 1000px;
-}
-
 .list {
   display: flex;
 
