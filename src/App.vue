@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <router-view />
+    <AppLayout>
+      <router-view />
+    </AppLayout>
   </div>
 </template>
 
 <script>
+import AppLayout from "@/layouts/AppLayout";
+
 export default {
   name: "App",
+  components: {
+    AppLayout,
+  },
   created() {
     this.$store.dispatch("init", { count: 30 });
   },
@@ -30,5 +37,7 @@ body,
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 </style>
