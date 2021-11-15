@@ -15,6 +15,15 @@ const mutations = {
       state.products.splice(index, 1, { ...product, favourite: true });
     }
   },
+  unfavourite(state, { id }) {
+    const index = state.products.findIndex((product) => product.id === id);
+
+    if (~index) {
+      const product = state.products[index];
+
+      state.products.splice(index, 1, { ...product, favourite: false });
+    }
+  },
 };
 
 const actions = {

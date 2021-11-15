@@ -9,4 +9,9 @@ export default [
     name: "Order",
     component: () => import("@/views/Order"),
   },
+  {
+    path: "/favourites",
+    name: "Favourites",
+    component: () => import("@/views/Favourites"),
+  },
 ];
