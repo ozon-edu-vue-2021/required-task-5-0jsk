@@ -14,6 +14,7 @@
       type="button"
       v-if="cart.length > 0"
       class="cart__btn-order btn-order"
+      @click="$router.push('order')"
     >
       Перейти в корзину
     </button>
@@ -68,7 +69,7 @@ export default {
 
   background-color: forestgreen;
   border-radius: 4px;
-  border: unset;
+  border: none;
   color: #fff;
   cursor: pointer;
 }
