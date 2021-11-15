@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
 import Product from "./Product";
 
 export default {
@@ -18,9 +17,12 @@ export default {
   components: {
     Product,
   },
-  computed: {
-    ...mapState("Products", ["products"]),
-    ...mapGetters("Products", ["favourites"]),
+  props: {
+    products: {
+      type: Array,
+      required: true,
+      validator: (products) => products.length > 0,
+    },
   },
 };
 </script>
