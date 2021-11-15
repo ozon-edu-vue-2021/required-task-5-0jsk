@@ -10,35 +10,28 @@
         <span class="product-description__title">{{ product.title }}</span>
         <span class="product-description__price"
           >{{ product.price }} &#215; {{ product.count }} =
-          {{ product.price * product.count }} &#8381;</span
-        >
+          {{ product.price * product.count }} &#8381;
+        </span>
       </div>
-      <div class="cart-product__counter counter">
-        <button
-          class="counter__control-btn counter__control-btn--remove"
-          type="button"
-          @click="remove(product)"
-        >
-          -
-        </button>
-        <div class="counter__count">{{ product.count }}</div>
-        <button
-          type="button"
-          class="counter__control-btn counter__control-btn--add"
-          @click="add(product)"
-        >
-          +
-        </button>
-      </div>
+      <Counter
+        class="cart-product__counter"
+        :count="product.count"
+        @add="add(product)"
+        @remove="remove(product)"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
+import { Counter } from "@/common/components";
 
 export default {
   name: "Product",
+  components: {
+    Counter,
+  },
   props: {
     product: {
       type: Object,
@@ -82,31 +75,5 @@ export default {
 
 .cart-product__counter {
   margin-top: 8px;
-}
-
-.counter {
-  display: flex;
-  align-items: center;
-}
-
-.counter__control-btn {
-  font-size: 14px;
-  padding: 2px 6px;
-
-  border-radius: 4px;
-  border: none;
-
-  cursor: pointer;
-}
-
-.counter__control-btn--add {
-  background-color: lightgreen;
-}
-
-.counter__control-btn--remove {
-}
-
-.counter__count {
-  margin: 0 6px;
 }
 </style>

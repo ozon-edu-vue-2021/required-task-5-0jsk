@@ -5,9 +5,11 @@
         <span class="item__title">
           {{ product.title }}
         </span>
-        <span>
-          {{ product.count }}
-        </span>
+        <Counter
+          :count="product.count"
+          @remove="remove(product)"
+          @add="add(product)"
+        />
       </li>
     </ul>
     <button
@@ -22,12 +24,19 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
+import { Counter } from "@/common/components";
 
 export default {
   name: "Cart",
+  components: {
+    Counter,
+  },
   computed: {
     ...mapState("Cart", ["cart"]),
+  },
+  methods: {
+    ...mapMutations("Cart", ["add", "remove"]),
   },
 };
 </script>
