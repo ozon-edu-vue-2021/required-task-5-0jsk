@@ -21,7 +21,6 @@ export default {
     products: {
       type: Array,
       required: true,
-      validator: (products) => products.length > 0,
     },
   },
 };
